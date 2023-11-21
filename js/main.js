@@ -165,8 +165,31 @@ createApp({
 						}
 					],
 				}
-			]
+			],
 
+			lastMessages : [],
 		}
-	}
+	},
+	methods: {
+		getLastMessage() {
+			for(i = 0; i < this.contacts.length; i++) {
+				// pesco i messaggi
+				let messaggi = this.contacts[i].messages;
+				// pesco l'ultimo messaggio
+				for(x = 0; x < messaggi.length; x++) {
+					if(x == messaggi.length - 1) {
+						// console.log("Ultimo messaggio: ", messaggi[x]);
+						// pusho l'ultimo messaggio
+						this.lastMessages.push(messaggi[x]);
+					}
+				}
+			}
+			console.log("Stampo array: ", this.lastMessages);
+			console.log("Primo ultimo messaggio: ", this.lastMessages[0].message);
+		},
+	},
+	mounted() {
+		this.getLastMessage();
+	},
+
 }).mount('#app')

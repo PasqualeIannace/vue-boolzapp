@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whats App Web</title>
+    <title>WhatsApp Web</title>
     <link rel="stylesheet" href="./css/style.css">
     <!-- Font Awesome 6.4.2 -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
@@ -17,27 +17,52 @@
         <!-- Left Side -->
         <div class="contactsContainer">
             <div class="myProfile">
-                <p>Pasquale</p>
+
+                <div class="profilo dFlex alignCenter">
+                    <img src="./img/pasquale.jpg" alt="">
+                    <h4>Pasquale</h4>
+                </div>
+                
+                <div class="buttons">
+                    <a href=""><i class="fa-solid fa-circle-notch fa-xl" style="color: #b1b1b1;"></i></a>
+                    <a href=""><i class="fa-solid fa-message fa-xl" style="color: #b1b1b1;"></i></a>
+                    <a href=""><i class="fa-solid fa-ellipsis-vertical fa-xl" style="color: #b1b1b1;"></i></a>
+                </div>
             </div>
 
-            <div class="feature">
-                <p>Ricevi notifiche di nuovi messaggi</p>
-                <a href="#">Attiva notifiche desktop</a>
+
+            <div class="feature dFlex alignCenter">
+                <div class="bell">
+                    <i class="fa-solid fa-bell-slash fa-xl" style="color: #8edafc;"></i>
+                </div>
+
+                <div>
+                    <p>Ricevi notifiche di nuovi messaggi</p>
+                    <a href="#">Attiva notifiche desktop</a>
+                </div>                
             </div>
 
-            <div class="search">
-                <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
+            <!-- search bar -->
+            <div class="search dFlex">
+                <div class="searchBar">
+                    <a href="#cerca">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #b1b1b1;"></i>
+                    </a>
+                    <input type="text" name="" id="cerca" placeholder="Cerca o inizia una nuova chat">
+                </div>
             </div>
             <!-- Chat -->
             <div class="messages">
                 <ul>
+                    <!-- genero i contatti -->
                     <li v-for="contatto in contacts"> 
-                        <!-- foto profilo -->
-                        <!-- <img src='"./img/" + "{{contatto.avatar}}"' alt=""> -->
-                        {{contatto.name}}
+                        <img v-bind:src="contatto.avatar" alt="">
+                        <h4>{{contatto.name}}</h4>
                         <!-- ultimo messaggio  -->
                     </li>
                 </ul>
+                <span>Ultimo messaggio {{lastMessages[0]}}</span>
+                <!-- <span>Ultimo messaggio {{lastMessages[0].message}}</span> !!!Cannot read properties of undefined (reading 'message')!!!-->
 
             </div>
 

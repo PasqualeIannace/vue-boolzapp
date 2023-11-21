@@ -45,14 +45,96 @@ li {
 
 .myProfile {
     background-color: #EAEAEA;
+    border-radius: 1em 0 0 0;
+    display: flex;
+    padding: 0.5em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profilo h4 {
+    margin-left: 0.3em;
+}
+
+.myProfile img {
+    width: 3em;
+    border-radius: 2em;
+}
+
+.buttons a {
+    margin: 0 0.5em;
 }
 
 .feature {
     background-color: #8EDAFC;
 }
 
+li img {
+    width: 3.5em;
+    border-radius: 2em;
+}
+
+.messages li {
+    display: flex;
+    border: 1px #b1b1b1;
+    border-style: none none solid none;
+    padding: 0.5em 1em;
+}
+
+    /* feature */
+
+    .bell {
+        background-color: white;
+        padding: 1em 0.7em;
+        margin: 0.7em 0.4em;
+        border-radius: 2em;
+    }
+
+    .feature a {
+        color: #6f6f6f;
+        font-size: 0.8em;
+    }
+
+    /* search */
+
+    .search {
+        background-color: #FAFAFA;
+    }
+
+    .searchBar {
+        margin: 0.3em auto;
+        width: 100%;
+    }
+
+    .search input {
+        padding: 0.5em;
+        border: 1px solid #b1b1b1;
+        border-radius: 0 0.4em 0.4em 0;
+        width: 90%;
+    }
+
+    .search a {
+        background-color: white;
+        display: inline-block;
+        padding: 0.27em;
+        border: 1px solid #b1b1b1;
+        border-radius: 0.4em 0 0 0.4em;
+        margin-left: 0.2em;
+        width: 8%;
+    }
+
 /* RIGHT SIDE */
 
 .contactOpt {
     background-color: #EAEAEA;
+}
+
+/* Classi atomiche */
+
+.dFlex {
+    display: flex;
+}
+
+.alignCenter {
+    align-items: center;
 }
