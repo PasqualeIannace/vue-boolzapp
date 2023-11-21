@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Whats App Web</title>
     <link rel="stylesheet" href="./css/style.css">
     <!-- Font Awesome 6.4.2 -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
@@ -14,10 +14,54 @@
 </head>
 <body>
     <div id="app">
-        
-    </div>
+        <!-- Left Side -->
+        <div class="contactsContainer">
+            <div class="myProfile">
+                <p>Pasquale</p>
+            </div>
 
-    
+            <div class="feature">
+                <p>Ricevi notifiche di nuovi messaggi</p>
+                <a href="#">Attiva notifiche desktop</a>
+            </div>
+
+            <div class="search">
+                <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
+            </div>
+            <!-- Chat -->
+            <div class="messages">
+                <ul>
+                    <li v-for="contatto in contacts"> 
+                        <!-- foto profilo -->
+                        <!-- <img src='"./img/" + "{{contatto.avatar}}"' alt=""> -->
+                        {{contatto.name}}
+                        <!-- ultimo messaggio  -->
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+        <!-- Right Side -->
+        <div class="chatContainer">
+
+            <div class="contactOpt">
+                <!-- foto profilo -->
+                {{contacts[0].name}}
+                <!-- ultimo messaggio  -->
+            </div>
+
+            <div class="chat">
+
+            </div>
+
+            <div class="write">
+                <input type="text" placeholder="Scrivi un messaggio">
+            </div>
+
+        </div>
+
+    </div>    
     
     <script src="./js/main.js"></script>
 </body>

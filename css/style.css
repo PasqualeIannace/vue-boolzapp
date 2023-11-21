@@ -6,4 +6,53 @@
 
 body {
     font-family: sans-serif;
+    background: linear-gradient(180deg, rgb(0 150 136) 15%, rgba(218,219,211,1) 15%);
+    height: 100vh;
+    padding-top: 3em;
+}
+
+li {
+    list-style-type: none;
+}
+
+#app {
+    background: white;
+    height: 90vh;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    border-radius: 1em;
+}
+
+.contactsContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 30%;
+}
+
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+    height: 100%;
+    width: 70%;
+    background-image: url(../img/mine.jpg);
+    border-radius: 0 1em 1em 0;
+}
+
+/* LEFT SIDE */
+
+.myProfile {
+    background-color: #EAEAEA;
+}
+
+.feature {
+    background-color: #8EDAFC;
+}
+
+/* RIGHT SIDE */
+
+.contactOpt {
+    background-color: #EAEAEA;
 }
