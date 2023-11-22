@@ -24,24 +24,15 @@ li {
     border-radius: 1em;
 }
 
+/* LEFT SIDE */
+
+
 .contactsContainer {
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 30%;
 }
-
-.chatContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;    
-    height: 100%;
-    width: 70%;
-    background-image: url(../img/mine.jpg);
-    border-radius: 0 1em 1em 0;
-}
-
-/* LEFT SIDE */
 
 .myProfile {
     background-color: #EAEAEA;
@@ -50,13 +41,15 @@ li {
     padding: 0.5em;
     justify-content: space-between;
     align-items: center;
+    height: 7%;
 }
 
 .profilo h4 {
     margin-left: 0.3em;
 }
 
-.myProfile img {
+.myProfile img,
+.contactOpt img  {
     width: 3em;
     border-radius: 2em;
 }
@@ -125,14 +118,72 @@ li img {
 
 /* RIGHT SIDE */
 
+.chatContainer {
+    display: flex;
+    flex-direction: column;  
+    height: 100%;
+    width: 70%;
+    background-image: url(../img/mine.jpg);
+    border-radius: 0 1em 1em 0;
+}
+
 .contactOpt {
     background-color: #EAEAEA;
+    border-radius: 0 1em 0 0;
+    height: 7%;
 }
+
+    /* chat */
+    .chat {
+        height: calc(100% - 14%);
+        padding: 1em 0;
+    }
+
+    .chatBox {
+        width: 30%;
+        min-height: 2em;
+        border-radius: 0.5em;
+        padding: 0.5em;
+        margin: 0.4em 3em;
+    }
+
+    .received {
+        background: white;
+    }
+
+    .sent {
+        background: #D5F9BA;
+    }
+
+    .chatBox span {
+        font-size: 0.6em;
+        color: #B1B1B1;
+    }
+
+    /* write */
+    .write {
+        background: #f3eee9db;
+        justify-content: space-around;
+        border-radius: 0 0 1em 0;
+        height: 7%;
+    }
+
+    .write input {
+        padding: 1em;
+        width: 85%;
+        margin: 0.6em;
+        border: none;
+        border-radius: 0.5em;
+    }
 
 /* Classi atomiche */
 
 .dFlex {
     display: flex;
+}
+
+.fEnd {
+    justify-content: flex-end;
 }
 
 .alignCenter {

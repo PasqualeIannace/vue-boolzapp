@@ -14,6 +14,7 @@
 </head>
 <body>
     <div id="app">
+
         <!-- Left Side -->
         <div class="contactsContainer">
             <div class="myProfile">
@@ -24,9 +25,9 @@
                 </div>
                 
                 <div class="buttons">
-                    <a href=""><i class="fa-solid fa-circle-notch fa-xl" style="color: #b1b1b1;"></i></a>
-                    <a href=""><i class="fa-solid fa-message fa-xl" style="color: #b1b1b1;"></i></a>
-                    <a href=""><i class="fa-solid fa-ellipsis-vertical fa-xl" style="color: #b1b1b1;"></i></a>
+                    <a href=""><i class="fa-solid fa-circle-notch fa-lg" style="color: #b1b1b1;"></i></a>
+                    <a href=""><i class="fa-solid fa-message fa-lg" style="color: #b1b1b1;"></i></a>
+                    <a href=""><i class="fa-solid fa-ellipsis-vertical fa-lg" style="color: #b1b1b1;"></i></a>
                 </div>
             </div>
 
@@ -61,27 +62,34 @@
                         <!-- ultimo messaggio  -->
                     </li>
                 </ul>
-                <span>Ultimo messaggio {{lastMessages[0]}}</span>
-                <!-- <span>Ultimo messaggio {{lastMessages[0].message}}</span> !!!Cannot read properties of undefined (reading 'message')!!!-->
-
+                <span v-if="lastMessages[0]">Ultimo messaggio {{lastMessages[0].message}}</span> 
             </div>
 
         </div>
+
+
         <!-- Right Side -->
         <div class="chatContainer">
 
-            <div class="contactOpt">
-                <!-- foto profilo -->
-                {{contacts[0].name}}
+            <div class="contactOpt dFlex alignCenter">
+                <img v-bind:src="contacts[indexChat].avatar" alt="">
+                {{contacts[indexChat].name}}
                 <!-- ultimo messaggio  -->
             </div>
 
             <div class="chat">
-
+                <div v-for="messaggio in contacts[indexChat].messages" class="dFlex" :class="messaggio.status == 'sent' ? 'fEnd' : '' ">
+                    <div class="chatBox" :class="[messaggio.status]">
+                        {{messaggio.message}}
+                        <span>{{messaggio.date}}</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="write">
+            <div class="write dFlex alignCenter">
+                <i class="fa-regular fa-face-smile fa-xl" style="color: #6a7376;"></i>
                 <input type="text" placeholder="Scrivi un messaggio">
+                <i class="fa-solid fa-microphone fa-xl" style="color: #6a7376;"></i>
             </div>
 
         </div>

@@ -167,6 +167,8 @@ createApp({
 				}
 			],
 
+			indexChat : 0,
+
 			lastMessages : [],
 		}
 	},
