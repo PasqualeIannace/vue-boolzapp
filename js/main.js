@@ -190,15 +190,25 @@ createApp({
 		},
 
 		selezionaChat(indice) {
+			// aggiorno l'indice
 			this.indexChat = indice;
 		},
 
 		send() {
+			// genero il messaggio come oggetto
 			let myText = { date: '', message: this.myInput, status: 'sent'};
-			console.log("Hai inviato!", myText);
-			console.log("Pesco messaggio ", this.contacts[this.indexChat].messages);
+			// pusho il messaggio nell'array
 			this.contacts[this.indexChat].messages.push(myText);
+			// pulisco il campo input
 			this.myInput = "";
+
+			// richiamo la risposta con 1 secondo di delay
+			setTimeout(this.getAnswer, 1000);
+		},
+
+		getAnswer() {
+			let answer = { date: '', message: "Ok!", status: 'received'};
+			this.contacts[this.indexChat].messages.push(answer);
 		}
 	},
 	mounted() {
