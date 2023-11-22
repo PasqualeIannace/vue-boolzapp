@@ -189,6 +189,14 @@ createApp({
 			console.log("Stampo array: ", this.lastMessages);
 			console.log("Primo ultimo messaggio: ", this.lastMessages[0].message);
 		},
+
+		selezionaChat(indice) {
+			console.log("Hai cliccato ", indice);
+			
+
+			this.indexChat = indice;
+
+		}
 	},
 	mounted() {
 		this.getLastMessage();

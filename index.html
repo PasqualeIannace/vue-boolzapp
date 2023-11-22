@@ -56,13 +56,13 @@
             <div class="messages">
                 <ul>
                     <!-- genero i contatti -->
-                    <li v-for="contatto in contacts"> 
+                    <li v-for="contatto, i in contacts" @click="selezionaChat(i)" :class="indexChat == i ? 'active' : '' "> 
                         <img v-bind:src="contatto.avatar" alt="">
                         <h4>{{contatto.name}}</h4>
                         <!-- ultimo messaggio  -->
                     </li>
                 </ul>
-                <span v-if="lastMessages[0]">Ultimo messaggio {{lastMessages[0].message}}</span> 
+                <span v-if="lastMessages[0]"> Ultimo messaggio {{lastMessages[0].message}}</span> 
             </div>
 
         </div>
