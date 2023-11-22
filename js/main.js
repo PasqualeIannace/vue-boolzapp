@@ -170,6 +170,8 @@ createApp({
 			indexChat : 0,
 
 			lastMessages : [],
+
+			myInput: '',
 		}
 	},
 	methods: {
@@ -180,22 +182,23 @@ createApp({
 				// pesco l'ultimo messaggio
 				for(x = 0; x < messaggi.length; x++) {
 					if(x == messaggi.length - 1) {
-						// console.log("Ultimo messaggio: ", messaggi[x]);
 						// pusho l'ultimo messaggio
 						this.lastMessages.push(messaggi[x]);
 					}
 				}
 			}
-			console.log("Stampo array: ", this.lastMessages);
-			console.log("Primo ultimo messaggio: ", this.lastMessages[0].message);
 		},
 
 		selezionaChat(indice) {
-			console.log("Hai cliccato ", indice);
-			
-
 			this.indexChat = indice;
+		},
 
+		send() {
+			let myText = { date: '', message: this.myInput, status: 'sent'};
+			console.log("Hai inviato!", myText);
+			console.log("Pesco messaggio ", this.contacts[this.indexChat].messages);
+			this.contacts[this.indexChat].messages.push(myText);
+			this.myInput = "";
 		}
 	},
 	mounted() {

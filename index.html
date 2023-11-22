@@ -59,10 +59,10 @@
                     <li v-for="contatto, i in contacts" @click="selezionaChat(i)" :class="indexChat == i ? 'active' : '' "> 
                         <img v-bind:src="contatto.avatar" alt="">
                         <h4>{{contatto.name}}</h4>
-                        <!-- ultimo messaggio  -->
+                        <span v-if="lastMessages[0]">{{lastMessages[i].message}}</span> 
                     </li>
                 </ul>
-                <span v-if="lastMessages[0]"> Ultimo messaggio {{lastMessages[0].message}}</span> 
+                
             </div>
 
         </div>
@@ -88,7 +88,7 @@
 
             <div class="write dFlex alignCenter">
                 <i class="fa-regular fa-face-smile fa-xl" style="color: #6a7376;"></i>
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" placeholder="Scrivi un messaggio" v-on:keyup.enter="send" v-model="myInput">
                 <i class="fa-solid fa-microphone fa-xl" style="color: #6a7376;"></i>
             </div>
 
