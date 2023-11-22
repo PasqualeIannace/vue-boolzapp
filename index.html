@@ -21,7 +21,7 @@
 
                 <div class="profilo dFlex alignCenter">
                     <img src="./img/pasquale.jpg" alt="">
-                    <h4>Pasquale</h4>
+                    <h4 class="px07">Pasquale</h4>
                 </div>
                 
                 <div class="buttons">
@@ -71,12 +71,24 @@
         <!-- Right Side -->
         <div class="chatContainer">
 
+            <!-- info contatto -->
             <div class="contactOpt dFlex alignCenter">
                 <img v-bind:src="contacts[indexChat].avatar" alt="">
-                {{contacts[indexChat].name}}
-                <!-- ultimo messaggio  -->
+                <div class="px07">
+                    <h4>{{contacts[indexChat].name}}</h4>
+                    <!-- da generare ultimo index messaggio recived -->
+                    <span class="shortSpan">{{contacts[indexChat].messages[0].date}}</span>
+                </div>
+
+                <!-- opzioni -->
+                <div class="dFlex opt">
+                    <a href=""><i class="fa-solid fa-magnifying-glass fa-lg" style="color: #b1b1b1;"></i></a>
+                    <a href=""><i class="fa-solid fa-paperclip fa-lg" style="color: #b1b1b1;"></i></a>
+                    <a href=""><i class="fa-solid fa-ellipsis-vertical fa-lg" style="color: #b1b1b1;"></i></a>
+                </div>
             </div>
 
+            <!-- chat -->
             <div class="chat">
                 <div v-for="messaggio in contacts[indexChat].messages" class="dFlex" :class="messaggio.status == 'sent' ? 'fEnd' : '' ">
                     <div class="chatBox" :class="[messaggio.status]">
@@ -86,12 +98,12 @@
                 </div>
             </div>
 
-            <div class="write dFlex alignCenter">
+            <!-- input utente -->
+            <div class="write dFlex alignCenter px07">
                 <i class="fa-regular fa-face-smile fa-xl" style="color: #6a7376;"></i>
                 <input type="text" placeholder="Scrivi un messaggio" v-on:keyup.enter="send" v-model="myInput">
                 <i class="fa-solid fa-microphone fa-xl" style="color: #6a7376;"></i>
             </div>
-
         </div>
 
     </div>    
