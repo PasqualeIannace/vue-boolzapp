@@ -49,17 +49,20 @@
                     <a href="#cerca">
                         <i class="fa-solid fa-magnifying-glass" style="color: #b1b1b1;"></i>
                     </a>
-                    <input type="text" name="" id="cerca" placeholder="Cerca o inizia una nuova chat">
+                    <input type="text" name="" id="cerca" placeholder="Cerca o inizia una nuova chat" v-model="search" >
                 </div>
             </div>
+
             <!-- Chat -->
             <div class="messages">
                 <ul>
                     <!-- genero i contatti -->
-                    <li v-for="contatto, i in contacts" @click="selezionaChat(i)" :class="indexChat == i ? 'active' : '' "> 
+                    <li v-for="contatto, i in filteredList" @click="selezionaChat(i)" :class="indexChat == i ? 'active' : '' ">
                         <img v-bind:src="contatto.avatar" alt="">
-                        <h4>{{contatto.name}}</h4>
-                        <span v-if="lastMessages[0]">{{lastMessages[i].message}}</span> 
+                        <div class="px07">
+                            <h4>{{contatto.name}}</h4>
+                            <span v-if="lastMessages[0]" class="shortSpan">{{lastMessages[i].message}}</span> 
+                        </div>
                     </li>
                 </ul>
                 

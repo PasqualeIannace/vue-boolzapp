@@ -1,3 +1,9 @@
+// class search {
+// 	constructor(name) {
+// 		this.name = name;
+// 	}
+// }
+
 const { createApp } = Vue
 
 createApp({
@@ -172,6 +178,8 @@ createApp({
 			lastMessages : [],
 
 			myInput: '',
+
+			search: '',
 		}
 	},
 	methods: {
@@ -214,5 +222,14 @@ createApp({
 	mounted() {
 		this.getLastMessage();
 	},
+
+	// search bar
+	computed: {
+		filteredList() {
+		  return this.contacts.filter(test => {
+			return test.name.toLowerCase().includes(this.search.toLowerCase())
+		  })
+		}
+	}
 
 }).mount('#app')

@@ -115,6 +115,10 @@ li img {
         width: 8%;
     }
 
+    #hide {
+        display: none;
+    }
+
     /* messages */
 
     .messages {
