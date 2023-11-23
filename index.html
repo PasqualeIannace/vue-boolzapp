@@ -100,14 +100,17 @@
 
                         <!-- dropdown -->
                         <div class="dropdown" @click="selezionaMessaggio(i)">
-                            <p>{{messaggio.message}}</p>
+                            <p :class="{ txtDeleted : messaggio.deleted }">
+                                <i v-if="messaggio.deleted" class="fa-solid fa-ban"></i>
+                                 {{messaggio.message}} 
+                            </p>
                             <span>{{messaggio.date}}</span>
 
                             <div v-if="indexMessage == i" :class="{ dropShow: show }" class="dropContent">
-                                <div>
+                                <div class="dropBox">
                                     Info messaggio
                                 </div>
-                                <div>
+                                <div class="dropBox" @click="deleteMessage(messaggio, i)">
                                    Elimina messaggio
                                 </div>
                             </div>

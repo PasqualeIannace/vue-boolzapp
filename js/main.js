@@ -180,6 +180,7 @@ createApp({
 			show: false,
 
 			indexMessage: '',
+			
 
 			// LUXON TEST
 			//dataTest: '102020' // '10/01/2020', //  16:15:22
@@ -233,6 +234,13 @@ createApp({
 				this.indexMessage = '';
 				this.show = false;
 			}
+		},
+
+		deleteMessage(messaggio, i) {
+			console.log(i);
+			messaggio.message = "Hai eliminato questo messaggio!";
+			messaggio.deleted = true;
+			console.log(messaggio);
 		}
 
 		// dataHoursFormat(data) {
