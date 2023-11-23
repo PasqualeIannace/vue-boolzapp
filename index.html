@@ -21,7 +21,7 @@
 
                 <div class="profilo dFlex alignCenter">
                     <img src="./img/pasquale.jpg" alt="">
-                    <h4 class="px07">Pasquale</h4>
+                    <h4 class="px07 fontLight">Pasquale</h4>
                 </div>
                 
                 <div class="buttons">
@@ -60,7 +60,7 @@
                     <li v-for="contatto, i in filteredList" @click="selezionaChat(i)" :class="indexChat == i ? 'active' : ''">
                         <img v-bind:src="contatto.avatar" alt="">
                         <div class="px07">
-                            <h4>{{contatto.name}}</h4>
+                            <h4 class="fontLight">{{contatto.name}}</h4>
                             <span v-if="lastMessages[0]" class="shortSpan">{{lastMessages[i].message}}</span> 
                         </div>
                     </li>
@@ -78,7 +78,7 @@
             <div class="contactOpt dFlex alignCenter">
                 <img v-bind:src="contacts[indexChat].avatar" alt="">
                 <div class="px07">
-                    <h4>{{contacts[indexChat].name}}</h4>
+                    <h4 class="fontLight">{{contacts[indexChat].name}}</h4>
                     <!-- da generare ultimo index messaggio recived -->
                     <span class="shortSpan">{{contacts[indexChat].messages[0].date}}</span>
                 </div>
