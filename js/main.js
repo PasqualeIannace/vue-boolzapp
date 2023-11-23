@@ -1,9 +1,3 @@
-// class search {
-// 	constructor(name) {
-// 		this.name = name;
-// 	}
-// }
-
 const { createApp } = Vue
 
 createApp({
@@ -223,11 +217,11 @@ createApp({
 		this.getLastMessage();
 	},
 
-	// search bar
+	// MILESTONE 4 search bar
 	computed: {
 		filteredList() {
-		  return this.contacts.filter(test => {
-			return test.name.toLowerCase().includes(this.search.toLowerCase())
+		  return this.contacts.filter(searchBar => {
+			return searchBar.name.toLowerCase().includes(this.search.toLowerCase())
 		  })
 		}
 	}

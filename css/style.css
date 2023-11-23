@@ -30,7 +30,7 @@ li {
     flex-direction: column;
     height: 100%;
     width: 30%;
-    border-right: 1px solid #B1B1B1;
+    border-right: 1px solid #b1b1b154;
 }
 
 .myProfile {
@@ -55,22 +55,6 @@ li {
 
 .feature {
     background-color: #8EDAFC;
-}
-
-li img {
-    width: 3.5em;
-    border-radius: 2em;
-}
-
-.messages li {
-    display: flex;
-    border: 1px #b1b1b1;
-    border-style: none none solid none;
-    padding: 0.5em 1em;
-}
-
-.active {
-    background: #E8EBEB;
 }
 
     /* feature */
@@ -115,14 +99,30 @@ li img {
         width: 8%;
     }
 
-    #hide {
-        display: none;
-    }
-
     /* messages */
 
     .messages {
         overflow: auto;
+    }
+
+    li img {
+        width: 3.5em;
+        border-radius: 2em;
+    }
+    
+    .messages li {
+        display: flex;
+        border: 1px #b1b1b154;
+        border-style: none none solid none;
+        padding: 0.5em 1em;
+    }
+  
+    .messages li:hover {
+        background: #E8EBEB;
+    }
+
+    .active {
+        background: #d0d0d0;
     }
 
 /* RIGHT SIDE */
