@@ -177,6 +177,10 @@ createApp({
 
 			search: '',
 
+			show: false,
+
+			indexMessage: '',
+
 			// LUXON TEST
 			//dataTest: '102020' // '10/01/2020', //  16:15:22
 		}
@@ -202,21 +206,49 @@ createApp({
 		},
 
 		send() {
-			// genero il messaggio come oggetto
-			let myText = { date: DateTime.now().toLocaleString(DateTime.TIME_SIMPLE), message: this.myInput, status: 'sent'};
-			// pusho il messaggio nell'array
-			this.contacts[this.indexChat].messages.push(myText);
-			// pulisco il campo input
-			this.myInput = "";
+			if(!this.myInput == "") {
+				// genero il messaggio come oggetto
+				let myText = { date: DateTime.now().toLocaleString(DateTime.TIME_SIMPLE), message: this.myInput, status: 'sent'};
+				// pusho il messaggio nell'array
+				this.contacts[this.indexChat].messages.push(myText);
+				// pulisco il campo input
+				this.myInput = "";
 
-			// richiamo la risposta con 1 secondo di delay
-			setTimeout(this.getAnswer, 1000);
+				// richiamo la risposta con 1 secondo di delay
+				setTimeout(this.getAnswer, 1000);
+			}
+			
 		},
 
 		getAnswer() {
 			let answer = { date: DateTime.now().toLocaleString(DateTime.TIME_SIMPLE), message: "Ok!", status: 'received'};
 			this.contacts[this.indexChat].messages.push(answer);
+		},
+
+		selezionaMessaggio(i) {
+			if(!this.show) {
+				this.indexMessage = i;
+				this.show = true;
+			} else {
+				this.indexMessage = '';
+				this.show = false;
+			}
 		}
+
+		// dataHoursFormat(data) {
+		// 	console.log(data);
+		// 	let hours = "";
+
+		// 	if(data.length != 'undefined') {
+		// 		for(i = 0; i < data.length; i++) {
+		// 			if(i > 10 && i < 16) {
+		// 				hours += data[i];
+		// 			}
+		// 		}
+		// 	}
+			
+		// 	return hours;
+		// },
 	},
 	mounted() {
 		this.getLastMessage();
@@ -229,9 +261,11 @@ createApp({
 					// this.dataTest = JSON.stringify(this.dataTest);
 					// console.log("Data test 2", this.dataTest);
 					// console.log(DateTime.fromISO(this.dataTest).toFormat('dd yyyy'));
-					
-					// console.log(this.lastMessages[0].date);
 				////////////////////////////////////////////////////////////
+
+				// console.log(this.lastMessages[0].date);
+
+		// this.dataHoursFormat();
 	},
 
 	// MILESTONE 4 search bar

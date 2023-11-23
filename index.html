@@ -95,10 +95,25 @@
 
             <!-- chat -->
             <div class="chat">
-                <div v-for="messaggio in contacts[indexChat].messages" class="dFlex" :class="messaggio.status == 'sent' ? 'fEnd' : '' ">
+                <div v-for="messaggio, i in contacts[indexChat].messages" class="dFlex" :class="messaggio.status == 'sent' ? 'fEnd' : '' ">
                     <div class="chatBox" :class="[messaggio.status]">
-                        {{messaggio.message}}
-                        <span>{{messaggio.date}}</span>
+
+                        <!-- dropdown -->
+                        <div class="dropdown" @click="selezionaMessaggio(i)">
+                            <p>{{messaggio.message}}</p>
+                            <span>{{messaggio.date}}</span>
+
+                            <div v-if="indexMessage == i" :class="{ dropShow: show }" class="dropContent">
+                                <div>
+                                    Info messaggio
+                                </div>
+                                <div>
+                                   Elimina messaggio
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- <span>{{dataHoursFormat(messaggio.date)}}</span> -->
                     </div>
                 </div>
             </div>

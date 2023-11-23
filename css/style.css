@@ -184,6 +184,23 @@ li {
         color: #B1B1B1;
     }
 
+        /* dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropContent {
+            display: none;
+        }
+
+        .dropShow {
+            position: absolute;
+            display: block;
+            background: white;
+            right: 0;
+            top: 10px;
+        }
+
     /* write */
     .write {
         background: #f3eee9db;
