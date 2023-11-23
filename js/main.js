@@ -1,5 +1,7 @@
 const { createApp } = Vue
 
+var DateTime = luxon.DateTime;
+
 createApp({
 	data() {
 		return {
@@ -174,6 +176,9 @@ createApp({
 			myInput: '',
 
 			search: '',
+
+			// LUXON TEST
+			//dataTest: '102020' // '10/01/2020', //  16:15:22
 		}
 	},
 	methods: {
@@ -198,7 +203,7 @@ createApp({
 
 		send() {
 			// genero il messaggio come oggetto
-			let myText = { date: '', message: this.myInput, status: 'sent'};
+			let myText = { date: DateTime.now().toLocaleString(DateTime.TIME_SIMPLE), message: this.myInput, status: 'sent'};
 			// pusho il messaggio nell'array
 			this.contacts[this.indexChat].messages.push(myText);
 			// pulisco il campo input
@@ -209,12 +214,24 @@ createApp({
 		},
 
 		getAnswer() {
-			let answer = { date: '', message: "Ok!", status: 'received'};
+			let answer = { date: DateTime.now().toLocaleString(DateTime.TIME_SIMPLE), message: "Ok!", status: 'received'};
 			this.contacts[this.indexChat].messages.push(answer);
 		}
 	},
 	mounted() {
 		this.getLastMessage();
+
+				// TEST LIBRERIA LUXON, COME SI CONVERTE UN DATO ESISTENTE?
+					// console.log(DateTime.fromFormatExplain(this.lastMessages[0].date, "f").toLocaleString(DateTime.TIME_SIMPLE));
+					// let provaData = JSON.stringify(this.dataTest);
+					// console.log("Data test 1", this.dataTest);
+					
+					// this.dataTest = JSON.stringify(this.dataTest);
+					// console.log("Data test 2", this.dataTest);
+					// console.log(DateTime.fromISO(this.dataTest).toFormat('dd yyyy'));
+					
+					// console.log(this.lastMessages[0].date);
+				////////////////////////////////////////////////////////////
 	},
 
 	// MILESTONE 4 search bar
