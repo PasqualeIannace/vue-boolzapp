@@ -169,9 +169,9 @@ createApp({
 				}
 			],
 
-			indexChat : 0,
+			indexChat: 0,
 
-			lastMessages : [],
+			lastMessages: [],
 
 			myInput: '',
 
@@ -180,7 +180,8 @@ createApp({
 			show: false,
 
 			indexMessage: '',
-			
+
+			iconIndex: -1,
 
 			// LUXON TEST
 			//dataTest: '102020' // '10/01/2020', //  16:15:22
@@ -188,12 +189,12 @@ createApp({
 	},
 	methods: {
 		getLastMessage() {
-			for(i = 0; i < this.contacts.length; i++) {
+			for (i = 0; i < this.contacts.length; i++) {
 				// pesco i messaggi
 				let messaggi = this.contacts[i].messages;
 				// pesco l'ultimo messaggio
-				for(x = 0; x < messaggi.length; x++) {
-					if(x == messaggi.length - 1) {
+				for (x = 0; x < messaggi.length; x++) {
+					if (x == messaggi.length - 1) {
 						// pusho l'ultimo messaggio
 						this.lastMessages.push(messaggi[x]);
 					}
@@ -207,9 +208,9 @@ createApp({
 		},
 
 		send() {
-			if(!this.myInput == "") {
+			if (!this.myInput == "") {
 				// genero il messaggio come oggetto
-				let myText = { date: DateTime.now().toLocaleString(DateTime.TIME_SIMPLE), message: this.myInput, status: 'sent'};
+				let myText = { date: DateTime.now().toLocaleString(DateTime.TIME_SIMPLE), message: this.myInput, status: 'sent' };
 				// pusho il messaggio nell'array
 				this.contacts[this.indexChat].messages.push(myText);
 				// pulisco il campo input
@@ -218,16 +219,16 @@ createApp({
 				// richiamo la risposta con 1 secondo di delay
 				setTimeout(this.getAnswer, 1000);
 			}
-			
+
 		},
 
 		getAnswer() {
-			let answer = { date: DateTime.now().toLocaleString(DateTime.TIME_SIMPLE), message: "Ok!", status: 'received'};
+			let answer = { date: DateTime.now().toLocaleString(DateTime.TIME_SIMPLE), message: "Ok!", status: 'received' };
 			this.contacts[this.indexChat].messages.push(answer);
 		},
 
 		selezionaMessaggio(i) {
-			if(!this.show) {
+			if (!this.show) {
 				this.indexMessage = i;
 				this.show = true;
 			} else {
@@ -237,10 +238,8 @@ createApp({
 		},
 
 		deleteMessage(messaggio, i) {
-			console.log(i);
 			messaggio.message = "Hai eliminato questo messaggio!";
 			messaggio.deleted = true;
-			console.log(messaggio);
 		}
 
 		// dataHoursFormat(data) {
@@ -254,24 +253,24 @@ createApp({
 		// 			}
 		// 		}
 		// 	}
-			
+
 		// 	return hours;
 		// },
 	},
 	mounted() {
 		this.getLastMessage();
 
-				// TEST LIBRERIA LUXON, COME SI CONVERTE UN DATO ESISTENTE?
-					// console.log(DateTime.fromFormatExplain(this.lastMessages[0].date, "f").toLocaleString(DateTime.TIME_SIMPLE));
-					// let provaData = JSON.stringify(this.dataTest);
-					// console.log("Data test 1", this.dataTest);
-					
-					// this.dataTest = JSON.stringify(this.dataTest);
-					// console.log("Data test 2", this.dataTest);
-					// console.log(DateTime.fromISO(this.dataTest).toFormat('dd yyyy'));
-				////////////////////////////////////////////////////////////
+		// TEST LIBRERIA LUXON, COME SI CONVERTE UN DATO ESISTENTE?
+		// console.log(DateTime.fromFormatExplain(this.lastMessages[0].date, "f").toLocaleString(DateTime.TIME_SIMPLE));
+		// let provaData = JSON.stringify(this.dataTest);
+		// console.log("Data test 1", this.dataTest);
 
-				// console.log(this.lastMessages[0].date);
+		// this.dataTest = JSON.stringify(this.dataTest);
+		// console.log("Data test 2", this.dataTest);
+		// console.log(DateTime.fromISO(this.dataTest).toFormat('dd yyyy'));
+		////////////////////////////////////////////////////////////
+
+		// console.log(this.lastMessages[0].date);
 
 		// this.dataHoursFormat();
 	},
@@ -279,9 +278,9 @@ createApp({
 	// MILESTONE 4 search bar
 	computed: {
 		filteredList() {
-		  return this.contacts.filter(searchBar => {
-			return searchBar.name.toLowerCase().includes(this.search.toLowerCase())
-		  })
+			return this.contacts.filter(searchBar => {
+				return searchBar.name.toLowerCase().includes(this.search.toLowerCase())
+			})
 		}
 	}
 

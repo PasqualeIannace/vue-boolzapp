@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
     <!-- Luxon / formattazione data -->
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
 </head>
+
 <body>
     <div id="app">
 
@@ -25,7 +27,7 @@
                     <img src="./img/pasquale.jpg" alt="">
                     <h4 class="px07 fontLight">Pasquale</h4>
                 </div>
-                
+
                 <div class="buttons">
                     <a href=""><i class="fa-solid fa-circle-notch fa-lg" style="color: #b1b1b1;"></i></a>
                     <a href=""><i class="fa-solid fa-message fa-lg" style="color: #b1b1b1;"></i></a>
@@ -42,7 +44,7 @@
                 <div>
                     <p>Ricevi notifiche di nuovi messaggi</p>
                     <a href="#">Attiva notifiche desktop</a>
-                </div>                
+                </div>
             </div>
 
             <!-- search bar -->
@@ -51,7 +53,7 @@
                     <a href="#cerca">
                         <i class="fa-solid fa-magnifying-glass" style="color: #b1b1b1;"></i>
                     </a>
-                    <input type="text" name="" id="cerca" placeholder="Cerca o inizia una nuova chat" v-model="search" >
+                    <input type="text" name="" id="cerca" placeholder="Cerca o inizia una nuova chat" v-model="search">
                 </div>
             </div>
 
@@ -59,15 +61,16 @@
             <div class="messages">
                 <ul>
                     <!-- genero i contatti -->
-                    <li v-for="contatto, i in filteredList" @click="selezionaChat(i)" :class="indexChat == i ? 'active' : ''">
+                    <li v-for="contatto, i in filteredList" @click="selezionaChat(i)"
+                        :class="indexChat == i ? 'active' : ''">
                         <img v-bind:src="contatto.avatar" alt="">
                         <div class="px07">
                             <h4 class="fontLight">{{contatto.name}}</h4>
-                            <span v-if="lastMessages[0]" class="shortSpan">{{lastMessages[i].message}}</span> 
+                            <span v-if="lastMessages[0]" class="shortSpan">{{lastMessages[i].message}}</span>
                         </div>
                     </li>
                 </ul>
-                
+
             </div>
 
         </div>
@@ -95,14 +98,17 @@
 
             <!-- chat -->
             <div class="chat">
-                <div v-for="messaggio, i in contacts[indexChat].messages" class="dFlex" :class="messaggio.status == 'sent' ? 'fEnd' : '' ">
+                <div v-for="messaggio, i in contacts[indexChat].messages" class="dFlex"
+                    :class="messaggio.status == 'sent' ? 'fEnd' : '' ">
                     <div class="chatBox" :class="[messaggio.status]">
 
                         <!-- dropdown -->
-                        <div class="dropdown" @click="selezionaMessaggio(i)">
+                        <div @mouseover="iconIndex=i" @mouseleave="iconIndex=-1" class="dropdown"
+                            @click="selezionaMessaggio(i)">
+                            <i v-show="iconIndex == i" class="fa-solid fa-chevron-down fa-sm chevron"></i>
                             <p :class="{ txtDeleted : messaggio.deleted }">
                                 <i v-if="messaggio.deleted" class="fa-solid fa-ban"></i>
-                                 {{messaggio.message}} 
+                                {{messaggio.message}}
                             </p>
                             <span>{{messaggio.date}}</span>
 
@@ -111,11 +117,11 @@
                                     Info messaggio
                                 </div>
                                 <div class="dropBox" @click="deleteMessage(messaggio, i)">
-                                   Elimina messaggio
+                                    Elimina messaggio
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- <span>{{dataHoursFormat(messaggio.date)}}</span> -->
                     </div>
                 </div>
@@ -124,7 +130,7 @@
             <!-- input utente -->
             <div class="write dFlex alignCenter px07">
                 <i class="fa-regular fa-face-smile fa-xl" style="color: #6a7376;"></i>
-                
+
                 <input type="text" placeholder="Scrivi un messaggio" v-on:keyup.enter="send" v-model="myInput">
 
                 <i v-if="myInput == '' " class="fa-solid fa-microphone fa-xl" style="color: #6a7376;"></i>
@@ -132,8 +138,9 @@
             </div>
         </div>
 
-    </div>    
-    
+    </div>
+
     <script src="./js/main.js"></script>
 </body>
+
 </html>
