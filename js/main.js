@@ -171,8 +171,6 @@ createApp({
 
 			indexChat: 0,
 
-			lastMessages: [],
-
 			myInput: '',
 
 			search: '',
@@ -188,20 +186,6 @@ createApp({
 		}
 	},
 	methods: {
-		getLastMessage() {
-			for (i = 0; i < this.contacts.length; i++) {
-				// pesco i messaggi
-				let messaggi = this.contacts[i].messages;
-				// pesco l'ultimo messaggio
-				for (x = 0; x < messaggi.length; x++) {
-					if (x == messaggi.length - 1) {
-						// pusho l'ultimo messaggio
-						this.lastMessages.push(messaggi[x]);
-					}
-				}
-			}
-		},
-
 		selezionaChat(indice) {
 			// aggiorno l'indice
 			this.indexChat = indice;
@@ -258,7 +242,6 @@ createApp({
 		// },
 	},
 	mounted() {
-		this.getLastMessage();
 
 		// TEST LIBRERIA LUXON, COME SI CONVERTE UN DATO ESISTENTE?
 		// console.log(DateTime.fromFormatExplain(this.lastMessages[0].date, "f").toLocaleString(DateTime.TIME_SIMPLE));
