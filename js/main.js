@@ -197,6 +197,13 @@ createApp({
 				let myText = { date: DateTime.now().toLocaleString(DateTime.TIME_SIMPLE), message: this.myInput, status: 'sent' };
 				// pusho il messaggio nell'array
 				this.contacts[this.indexChat].messages.push(myText);
+				// Rimuovo la chat corrente dall'array
+				let currentChat = this.contacts.splice(this.indexChat, 1)[0];
+				// Inserisco la chat corrente nella parte superiore dell'array
+				this.contacts.unshift(currentChat);
+
+				// Resetto l'indice della chat corrente
+				this.indexChat = 0;
 				// pulisco il campo input
 				this.myInput = "";
 
